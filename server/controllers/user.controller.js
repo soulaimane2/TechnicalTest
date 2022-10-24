@@ -38,7 +38,7 @@ async function httpRegisterEmail(req, res) {
 async function httpVerifyMail(req, res) {
     try{
 
-        const {code} = req.params
+        const {code} = req.body
         console.log(code)
 
         const checkSentCode = await checkCode({code})
