@@ -38,19 +38,20 @@ async function httpRegisterEmail(req, res) {
 async function httpVerifyMail(req, res) {
     try{
 
-        const {code} = req.body
+        const {code} = req.params
         console.log(code)
 
         const checkSentCode = await checkCode({code})
 
         if(checkSentCode.error) return res.status(400).json(checkSentCode)
 
+        console.log({code})
 
-        const updateStatus = await updateStatus({code})
+        const updateStus = await updateStatus({code})
 
-        if(updateStatus.error) return res.status(400).json(updateStatus)
+        if(updateStus.error) return res.status(400).json(updateStatus)
 
-        return res.status(200).json(updateStatus)
+        return res.status(200).json(updateStus)
 
     }catch(err){
         return {error: true, message: "Something went wrong!"}

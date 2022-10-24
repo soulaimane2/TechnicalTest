@@ -5,6 +5,6 @@ const { httpRegisterEmail,httpVerifyMail } = require('../controllers/user.contro
 const AuthRoutes = Router()
 
 AuthRoutes.post('/register', httpRegisterEmail)
-AuthRoutes.post('/verifyEmail', httpVerifyMail)
+AuthRoutes.post('/verifyEmail/:code', httpVerifyMail)
 
 module.exports = AuthRoutes

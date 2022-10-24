@@ -35,7 +35,7 @@ async function checkCode ({code}) {
     try{
         console.log({code})
         const findmail = await emailVerificationModel.findOne({confirmationCode: code}).exec()
-
+        console.log(findmail)
         if(findmail) return {error: false, message:"Email successfuly verified!"}
 
         return {error: true, message: "the code is wrong!"}
